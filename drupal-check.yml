@@ -1,5 +1,5 @@
 .install-script: &drupal-check-install |
-  rm -rf /var/www/html/web/modules/contrib/$CI_PROJECT_NAME
+  mkdir -p /var/www/html/web/modules/contrib
   cp -r $CI_PROJECT_DIR /var/www/html/web/modules/contrib/$CI_PROJECT_NAME
   cd /var/www/html
 
