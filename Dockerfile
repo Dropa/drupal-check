@@ -1,8 +1,7 @@
-FROM composer
+FROM wodby/drupal
 
-# Install Drupal Coding Standards
 RUN composer global require mglaman/drupal-check
 
-WORKDIR /build
+WORKDIR /var/www/html
 
 CMD ["drupal-check"]
