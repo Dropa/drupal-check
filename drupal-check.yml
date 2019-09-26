@@ -1,0 +1,26 @@
+.install-script: &drupal-check-install |
+  composer create-project drupal-composer/drupal-project:8.x-dev /build/drupal --no-interaction
+  rm -rf /build/drupal/web/modules/contrib/$CI_PROJECT_NAME
+  cp -r $CI_PROJECT_DIR /build/drupal/web/modules/contrib/$CI_PROJECT_NAME
+  cd /build/drupal
+
+.drupal-check-base:
+  image: samihellsten/drupal-check
+
+.drupal-check-analyze:
+  extends: .drupal-check-base
+  script:
+    - *drupal-check-install
+    - drupal-check -a web/modules/contrib/$CI_PROJECT_NAME
+
+.drupal-check-deprecated:
+  extends: .drupal-check-base
+  script:
+    - *drupal-check-install
+    - drupal-check -a web/modules/contrib/$CI_PROJECT_NAME
+
+.drupal-check-full:
+  extends: .drupal-check-base
+  script:
+    - *drupal-check-install
+    - drupal-check -ad web/modules/contrib/$CI_PROJECT_NAME
