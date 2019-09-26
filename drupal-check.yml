@@ -1,8 +1,7 @@
 .install-script: &drupal-check-install |
-  composer create-project drupal-composer/drupal-project:8.x-dev /build/drupal --no-interaction
-  rm -rf /build/drupal/web/modules/contrib/$CI_PROJECT_NAME
-  cp -r $CI_PROJECT_DIR /build/drupal/web/modules/contrib/$CI_PROJECT_NAME
-  cd /build/drupal
+  rm -rf /var/www/html/web/modules/contrib/$CI_PROJECT_NAME
+  cp -r $CI_PROJECT_DIR /var/www/html/web/modules/contrib/$CI_PROJECT_NAME
+  cd /var/www/html
 
 .drupal-check-base:
   image: samihellsten/drupal-check
