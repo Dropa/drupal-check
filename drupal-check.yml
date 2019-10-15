@@ -16,7 +16,7 @@
   extends: .drupal-check-base
   script:
     - *drupal-check-install
-    - drupal-check -a web/modules/contrib/$CI_PROJECT_NAME
+    - drupal-check -d web/modules/contrib/$CI_PROJECT_NAME
 
 .drupal-check-full:
   extends: .drupal-check-base
