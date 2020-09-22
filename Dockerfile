@@ -3,7 +3,7 @@ LABEL maintainer="Sami Hellsten"
 
 RUN composer global require mglaman/drupal-check
 
-ENV PATH="/home/root/.composer/vendor/bin:${PATH}"
+ENV PATH="/root/.composer/vendor/bin:${PATH}"
 
 WORKDIR /var/www/html
 
