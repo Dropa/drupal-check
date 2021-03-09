@@ -1,4 +1,4 @@
-FROM willhallonline/composer:php-7.2
+FROM samihellsten/composer
 LABEL maintainer="Sami Hellsten"
 
 RUN composer global require mglaman/drupal-check
