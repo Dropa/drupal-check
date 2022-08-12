@@ -1,0 +1,19 @@
+{
+  "require": {
+    "mglaman/drupal-check": "^1.4",
+    "cweagans/composer-patches": "^1.7"
+  },
+  "config": {
+    "allow-plugins": {
+      "cweagans/composer-patches": true
+    }
+  },
+  "extra": {
+    "composer-exit-on-patch-failure": true,
+    "patches": {
+      "mglaman/drupal-check": {
+        "https://github.com/mglaman/drupal-check/pull/281 custom config": "patches/280-custom-config.patch"
+      }
+    }
+  }
+}
